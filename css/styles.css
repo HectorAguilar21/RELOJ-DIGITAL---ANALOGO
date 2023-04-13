@@ -1,0 +1,279 @@
+/* Estilos Comunes */
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+h1 {
+  color: #71767f;
+  font-size: 3rem;
+  text-align: center;
+  font-family: "Source Sans 3", sans-serif;
+  margin: 0px 0px 20px;
+}
+
+.reloj-digital-full,
+.reloj-analogo-full {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos Reloj Digital  */
+
+.reloj-digital-full {
+  background: #d1dae3;
+}
+
+.reloj-digital {
+  font-family: sans-serif;
+  font-size: 60px;
+  background: #d1dae3;
+  border-radius: 4px;
+  border: 4px solid #cad3dc;
+  width: 500px;
+  color: #71767f;
+  box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.5),
+    10px 10px 10px rgba(0, 0, 0, 0.1),
+    inset -8px -8px 15px rgba(255, 255, 255, 0.5),
+    inset 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.reloj-digital-contenedor {
+  padding: 25px;
+  max-width: 350px;
+  text-align: center;
+  border-radius: 5px;
+  margin: auto;
+}
+
+#fecha {
+  letter-spacing: 10px;
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+/* Estilos Reloj analogo */
+
+.reloj-analogo-full {
+  background: #091921;
+}
+
+.reloj-analogo {
+  font-family: sans-serif;
+  border-radius: 50%;
+  border: 4px solid #091921;
+  width: 400px;
+  height: 400px;
+  color: #71767f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px -15px 15px rgba(255, 255, 255, 0.05),
+    inset 0px -15px 15px rgba(255, 255, 255, 0.05),
+    0px 15px 15px rgba(0, 0, 0, 0.3), inset 0px 15px 15px rgba(0, 0, 0, 0.3);
+}
+
+.reloj-analogo-contenedor {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.reloj-analogo-contenedor .numeros {
+  width: 100%;
+  height: 100%;
+}
+
+.reloj-analogo-contenedor .numeros div {
+  position: absolute;
+  inset: 20px;
+  text-align: center;
+  transform: rotate(calc(var(--i) * (360deg / 12)));
+}
+
+.reloj-analogo-contenedor .numeros div span {
+  display: inline-block;
+  font-size: 35px;
+  font-weight: 600;
+  transform: rotate(calc(var(--i) * (-360deg / 12)));
+}
+
+.reloj-analogo .reloj-analogo-contenedor .indicador {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 20px;
+  width: 20px;
+  background-color: #71767f;
+  border: 4px solid rgba(173, 8, 8, 0.758);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.reloj-analogo .reloj-analogo-contenedor .manecillas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reloj-analogo-contenedor .manecilla {
+  position: absolute;
+  bottom: 50%;
+  transform-origin: bottom;
+  border-radius: 25px;
+}
+
+.manecilla.segundo {
+  height: 130px;
+  width: 4px;
+  transform: rotate(0deg);
+  background-color: rgb(155, 4, 4);
+}
+
+.manecilla.minuto {
+  height: 120px;
+  width: 6px;
+  transform: rotate(0deg);
+  background-color: #71767f;
+}
+
+.manecilla.hora {
+  height: 90px;
+  width: 10px;
+  transform: rotate(0deg);
+  background-color: #71767f;
+}
+
+/* Media queries  */
+
+@media (max-width: 1919px) {
+  /* media queries comunes */
+  h1 {
+    font-size: 2rem;
+  }
+
+  /* media queries reloj digital */
+  .reloj-digital {
+    font-size: 40px;
+    width: 400px;
+  }
+
+  /* media queries reloj analogo */
+  .reloj-analogo {
+    width: 300px;
+    height: 300px;
+  }
+
+  .reloj-analogo .reloj-analogo-contenedor .indicador {
+    height: 10px;
+    width: 10px;
+  }
+
+  .reloj-analogo-contenedor .numeros div span {
+    font-size: 25px;
+  }
+
+  .manecilla.segundo {
+    height: 90px;
+  }
+
+  .manecilla.minuto {
+    height: 80px;
+  }
+
+  .manecilla.hora {
+    height: 60px;
+  }
+}
+
+@media (max-width: 1279px) {
+  /* media queries comunes */
+  body {
+    flex-direction: column;
+  }
+
+  .reloj-digital-full,
+  .reloj-analogo-full {
+    width: 100%;
+    height: 50vh;
+  }
+}
+
+@media (max-width: 599px) {
+  /* media queries comunes */
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  /* media queries reloj digital */
+  .reloj-digital {
+    font-size: 30px;
+    width: 300px;
+  }
+
+  #fecha {
+    letter-spacing: 5px;
+    font-size: 15px;
+  }
+  /* media queries reloj analogo */
+  .reloj-analogo {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 599px) {
+  /* media queries comunes */
+  h1 {
+    margin: 0px 0px 10px;
+  }
+
+  /* media queries reloj digital */
+  .reloj-digital {
+    width: 275px;
+  }
+
+  /* media queries reloj analogo */
+  .reloj-analogo {
+    width: 200px;
+    height: 200px;
+  }
+
+  .reloj-analogo-contenedor .numeros div span {
+    font-size: 15px;
+  }
+
+  .reloj-analogo .reloj-analogo-contenedor .indicador {
+    height: 7.5px;
+    width: 7.5px;
+  }
+
+  .manecilla.segundo {
+    height: 55px;
+    width: 3px;
+  }
+
+  .manecilla.minuto {
+    height: 47px;
+    width: 5px;
+  }
+
+  .manecilla.hora {
+    height: 40px;
+    width: 7px;
+  }
+}
